@@ -9,3 +9,6 @@ runs:
     - name: extract binary (until we have binary distribution)
       shell: bash
       run: docker cp `docker create iptestground/testground:edge`:/testground "${PWD}/binaries/testground"
+    - name: Pull containers
+      shell: bash
+      run: docker pull iptestground/sidecar:edge && docker pull iptestground/sync-service:latest
