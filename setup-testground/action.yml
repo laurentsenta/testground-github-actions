@@ -1,0 +1,11 @@
+name: Setup Testground
+description: Setup the testground binary
+runs:
+  using: composite
+  steps:
+    - name: Inject testground into PATH
+      shell: bash
+      run: mkdir ${PWD}/binaries && echo ${PWD}/binaries >> $GITHUB_PATH
+    - name: extract binary (until we have binary distribution)
+      shell: bash
+      run: docker cp `docker create iptestground/testground:edge`:/testground "${PWD}/binaries/testground"
