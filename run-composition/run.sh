@@ -53,7 +53,7 @@ echo "Waiting for job to complete."
 
 while [ "${status}" != "complete" -a "${status}" != "canceled" ]
 do
-	sleep 120
+	sleep 30
 	status=$(testground --endpoint "${INPUT_BACKEND_ENDPOINT}" status -t "${TGID}" | awk '/Status/ {print $2}')
 	echo "last polled status is ${status}"
 	echo "${OUTPUT_STATUS}${status}"
